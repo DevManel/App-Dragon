@@ -1,4 +1,4 @@
-import { ADD_DRAGON, DELETE_DRAGON, RANDOM_DRAGON, SET_DRAGON_NAME } from "../constants/action-type.js";
+import { ADD_DRAGON, DELETE_DRAGON, RANDOM_DRAGON, SET_DRAGON_NAME } from "../constant/action-type";
 
 export const setDragonName = (payload) => {
   return {

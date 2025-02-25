@@ -1,6 +1,6 @@
 import './App.css';
-import Form from "./components/Form.jsx";
-import List from "./components/List.jsx";
+import Form from "./component/Form.jsx";
+import List from "./component/List.jsx";
 import { useDispatch } from "react-redux";
 import { sortRandomDragon } from "./store/action/dragon-action.js";
 
