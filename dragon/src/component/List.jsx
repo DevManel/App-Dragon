@@ -1,9 +1,10 @@
 import { useSelector } from "react-redux";
 import { selectDragons } from "../store/selector/DragonSelector.js";
-import Dragon from "./Dragon.jsx"; // Mise à jour du nom du composant
+import Dragon from "./Dragon.jsx";
 
 const List = () => {
   const dragons = useSelector(selectDragons);
+  console.log(dragons);
 
   return (
     <>
@@ -11,7 +12,7 @@ const List = () => {
       {dragons.length ? (
         <ul>
           {dragons.map((dragon) => (
-            <Dragon key={dragon.id} dragon={dragon} /> // Utilisation du nouveau nom de composant
+            <Dragon key={dragon.id} dragon={dragon} />
           ))}
         </ul>
       ) : (
