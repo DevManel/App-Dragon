@@ -1,26 +1,27 @@
-import {ADD_DRAGON, DELETE_DRAGON, RANDOM_DRAGON, SET_DRAGON_NAME} from "../constant/action-type.js";
+import {ADD_DRAGON, DELETE_DRAGON, SET_DRAGON, SORT_DRAGON} from "../action-type/dragon-action-type.js";
 
-export const setDragonName = (payload) => {
+export const setDragonAction = (name) => {
  return {
-  type: SET_DRAGON_NAME,
-  payload
+  type: SET_DRAGON,
+  payload: name
  }
 }
 
-export const addDragon = () => {
+export const addDragonAction = () => {
  return {
   type: ADD_DRAGON
  }
 }
 
-export const deleteDragon = (payload) => {
+export const deleteDragonAction = (id) => {
  return {
   type: DELETE_DRAGON,
-  payload
+  payload: id
  }
 }
-export const sortRandomDragon = () => {
+
+export const sortDragonAction = () => {
  return {
-  type: RANDOM_DRAGON
+  type: SORT_DRAGON
  }
 }

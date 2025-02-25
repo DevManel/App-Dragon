@@ -1,52 +1,46 @@
-import {ADD_DRAGON, DELETE_DRAGON, RANDOM_DRAGON, SET_DRAGON_NAME} from "../constant/action-type.js";
+import {ADD_DRAGON, DELETE_DRAGON, SET_DRAGON, SORT_DRAGON} from "../action-type/dragon-action-type.js";
 
 let id = 0;
 
 const initialState = {
  dragons: [],
- dragon: {
-  id: id++,
-  name: ""
- }
+ dragon: "",
+ count: 0
 }
-
-const dragonReducer = (state = initialState, action) => {
+const dragonReducer = (state=initialState, action) => {
+ 
  switch(action.type) {
   
-  case SET_DRAGON_NAME:
+  case SET_DRAGON:
    return {
     ...state,
-    dragon: {
-     ...state.dragon,
-     name: action.payload
-    }
+    dragon: action.payload
    }
    
   case ADD_DRAGON:
    return {
     ...state,
-    dragon: {
-     id: id++,
-     name: ""
-    },
-    dragons: state.dragons.concat([{...state.dragon, name: state.dragon.name.trim()}])
+    dragons: state.dragons.concat([{name: state.dragon.trim(), id: id++}]),
+    dragon: "",
+    count: state.count+1
    }
    
   case DELETE_DRAGON:
    return {
     ...state,
-    dragons: state.dragons.filter((drag) => drag.id !== action.payload)
+    dragons: state.dragons.filter((drag) => drag.id !== action.payload),
+    count: state.count - 1
    }
    
-  case RANDOM_DRAGON:
+  case SORT_DRAGON:
    return {
     ...state,
-    dragons: [...state.dragons].sort(() => Math.random() - 0.5)
+    dragons: [...state.dragons.reverse()]
    }
   
   default:
    return state;
  }
+ 
 }
-
-export default dragonReducer;
+export default dragonReducer

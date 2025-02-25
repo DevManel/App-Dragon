@@ -1,15 +1,14 @@
-import React from 'react';
-import Form from './component/Form.jsx';
-import List from './component/List.jsx';
+import './App.css'
+import DragonPage from "./page/Dragon/index.page.jsx";
 
 function App() {
+ 
+ 
   return (
     <>
-      <h1>Liste de dragons</h1>
-      <Form />
-      <List />
+      <DragonPage />
     </>
-  );
+  )
 }
 
-export default App;
+export default App
