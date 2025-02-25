@@ -1,6 +1,8 @@
-import { createStore } from 'redux';
-import dragonsReducer from './reducer/dragonReducer';
+import dragonReducer from "./reducer/dragonReducer.js";
+import {legacy_createStore as createStore, combineReducers} from "redux";
 
-const store = createStore(dragonsReducer);
+const store = createStore(combineReducers({
+ dragonReducer
+}))
 
 export default store;

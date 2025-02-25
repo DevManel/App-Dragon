@@ -1,25 +1,24 @@
-import { useSelector } from "react-redux";
-import { selectDragons } from "../store/selector/DragonSelector.js";
-import Dragon from "./Dragon.jsx";
+import {useSelector} from "react-redux";
+import {selectDragons} from "../store/selector/dragonSelector.js";
+import DragonItem from "./DragonItem.jsx";
 
 const List = () => {
-  const dragons = useSelector(selectDragons);
-  console.log(dragons);
+ 
+ const dragons = useSelector(selectDragons)
+ 
+ return (<>
+   <h2>Liste</h2>
+  {
+   dragons.length ?
+    <ul>
+     {
+      dragons.map(dragon => <DragonItem key={dragon.id} dragon={dragon} /> )
+     }
+    </ul>
+    :
+    <p>Aucun dragon dans la liste</p>
+  }
+ </>)
+}
 
-  return (
-    <>
-      <h2>Liste des dragons</h2>
-      {dragons.length ? (
-        <ul>
-          {dragons.map((dragon) => (
-            <Dragon key={dragon.id} dragon={dragon} />
-          ))}
-        </ul>
-      ) : (
-        <p>Aucun dragon dans la liste</p>
-      )}
-    </>
-  );
-};
-
-export default List;
+export default List
